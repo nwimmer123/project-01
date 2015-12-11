@@ -25,6 +25,16 @@ app.get('/', function homepage (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
+//server requesting data from database/;
+app.get('/api/books', function booksIndex(req, res) {
+	db.Book.find({}, function(err, books) {
+		res.json(books);
+		console.log(books);
+		console.log("Books sent!");
+	});
+
+});
+
 
 
 /**********
