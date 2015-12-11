@@ -22,5 +22,11 @@ $(document).ready(function() {
   //hide add book field
   $("#createBook").hide();
 
+  //addBook button
+  $("#addBook").on('click', function(e) {
+	console.log("CLICK");
+	$("#createBook").show();
+	});
+
 
  });
