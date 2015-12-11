@@ -4,12 +4,11 @@ $(document).ready(function() {
 
   var baseUrl = '/api/books';
 
+//showing books on the homepage
   $.ajax({
   	method: 'GET',
   	url: baseUrl,
   	success: function showBooks (data) {
-  		console.log("I'm trying to get books!!");
-  		console.log(baseUrl);
   		data.forEach(function (element) {
 			$(".bookBox").append("<br><p>" + "<b>Contributor:  </b>" + element.contributor + "</p>");
 			$(".bookBox").append("<p>" + "<b>Title:  </b>" + element.title + "</p>");
@@ -19,5 +18,9 @@ $(document).ready(function() {
   	}
 
   });
+
+  //hide add book field
+  $("#createBook").hide();
+
 
  });
