@@ -35,6 +35,18 @@ app.get('/api/books', function booksIndex(req, res) {
 
 });
 
+//server sending data from create book form to database and then 
+//sending same data back to client
+
+app.post('/api/books', function createBook(req, res){
+	console.log ("The following should be the new book going into the database:", req.body);
+	db.Book.create(req.body, function(err, book) {
+		if (err) {console.log('ERROR:', err); }
+		console.log(book);
+		res.json(book);
+	});
+});
+
 
 
 /**********
