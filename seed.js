@@ -21,12 +21,13 @@ var books = [
 		}
 	];
 
-//db.Book.remove({}, function(err, books){
-	//if (err) { return console.log('ERROR', err); }
-	db.Book.create(books, function(err, books){
-		if (err) { return console.log('ERROR', err); }
-		console.log("all books:", books);
-		console.log("created ", books.length, " books");
-		process.exit();
-	});
-//});
+db.Book.remove({}, function(err, books){
+	if (err) { return console.log('ERROR', err); }
+});
+
+db.Book.create(books, function(err, books){
+	if (err) { return console.log('ERROR', err); }
+	console.log("all books:", books);
+	console.log("created ", books.length, " books");
+	process.exit();
+});
