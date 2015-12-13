@@ -21,9 +21,9 @@ var books = [
 		}
 	];
 
-db.Book.remove({}, function(err, books){
-	if (err) { return console.log('ERROR', err); }
-});
+// db.Book.remove({}, function(err, books){
+// 	if (err) { return console.log('ERROR', err); }
+// });
 
 db.Book.create(books, function(err, books){
 	if (err) { return console.log('ERROR', err); }
