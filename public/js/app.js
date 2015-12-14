@@ -4,25 +4,13 @@ $(document).ready(function() {
 
 	var baseUrl = '/api/books';
 
-//attempt at switching to handlebars to get books from database
-//debugger;
-	// var allBooks = [];
-	// //console.log("ALL BOOKS VAR" allBooks);
-
-	// var $booksList = $('#books-list');
-	// //("Books LIST VAR" allBooks);
-
-	// var $createBook = $('#create-book');
-//debugger;
+	//handlebars set up
 	var source = $('#books-template').html();
 	var template = Handlebars.compile(source);
-	console.log("TEMPLATE IS ", template);
-
-	console.log(baseUrl);
+	
+	//get all database items
 	$.get(baseUrl, function (data) {
-		console.log("Get call data:",data);
 		var dataHtml = template({ books: data});
-		console.log("dataHtml VAR '", dataHtml);
 		$("#books-list").append(dataHtml);
 	});
 
@@ -51,13 +39,12 @@ $(document).ready(function() {
 		});
 	});
 
-	// $(".bookBox").on("click", function(e) {
-	// 	console.log("CLICKED book box");
-	// 	var bookId = $(this).data.title;
-	// 	console.log(bookId);
+	//get id of bookBox
+	$(".lowerPage").on("click", ".book", function(e) {
+		console.log("CLICKED book box");
+		var id = $(this).data("id");
+        console.log(id);
+	});
 
-
-	// });
-
-
+	
  });

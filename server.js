@@ -31,24 +31,24 @@ app.get('/show', function homepage (req, res) {
 
 
 //failed
-// app.get('api/book/:id', function createSingleBook(req, res) {
-// 	console.log("in the get One");
-// 	//get book by id and send it to views/show.html
-// 	db.Book.findOne({_id: req.params.id}, function(err, book) {
-// 		console.log("in the get One AGAIN!");
-// 		console.log(req.params.id);
-// 		res.json(book);
-// 		console.log(book);
-// 		console.log("Books sent to show!");
-// 	});
-// });
+app.get('api/book/:id', function createSingleBook(req, res) {
+	console.log("in the get One");
+	//get book by id and send it to views/show.html
+	db.Book.findOne({_id: req.params.id}, function(err, book) {
+		console.log("in the get One AGAIN!");
+		console.log(req.params.id);
+		res.json(book);
+		console.log(book);
+		console.log("Books sent to show!");
+	});
+});
 
 //server requesting data from database/;
 app.get('/api/books', function booksIndex(req, res) {
 	db.Book.find({}, function(err, books) {
 		res.json(books);
-		console.log(books);
-		console.log("Books sent!");
+		//console.log(books);
+		//console.log("Books sent!");
 	});
 
 });
