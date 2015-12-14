@@ -4,27 +4,34 @@ $(document).ready(function() {
 
 	var baseUrl = '/api/books';
 
-//attempt at switching to handlebars
+//attempt at switching to handlebars to get books from database
+//debugger;
+	// var allBooks = [];
+	// //console.log("ALL BOOKS VAR" allBooks);
 
-	var allBooks = [];
+	// var $booksList = $('#books-list');
+	// //("Books LIST VAR" allBooks);
 
-	var $booksList = $('#books-list');
-
-	var $createBook = $('#create-book');
-
+	// var $createBook = $('#create-book');
+//debugger;
 	var source = $('#books-template').html();
 	var template = Handlebars.compile(source);
+	console.log("TEMPLATE IS ", template);
 
-	var render = function() {
-		$('#books-list').empty();
-		var booksHtml = template({ books: allBooks });
-		$('#books-list').append(booksHtml);
-	};
+	// var render = function() {
+	// 	$('#books-list').empty();
+	// 	var booksHtml = template({ books: allBooks });
 
+	// 	$('#books-list').append(booksHtml);
+	// };
+	console.log(baseUrl);
 	$.get(baseUrl, function (data) {
-		console.log(data);
-		allBooks = data.books;
-		render();
+		console.log("Get call data:",data);
+		var dataHtml = template({ books: data});
+		console.log("dataHtml VAR '", dataHtml);
+		// allBooks = data.books;
+		// render();
+		$("#books-list").append(dataHtml);
 	});
 
 	//showing books on the homepage
@@ -49,15 +56,15 @@ $(document).ready(function() {
 	// });
 
 	//hide add book field
-	$("#createBook").hide();
+	//$("#createBook").hide();
 
 	//addBook button actions
 	$("#addBook").on('click', function(e) {
 
 		//send new book data to server and reload page to display it
 		console.log("CLICKed the Add Book Button");
-		$(".lowerPage").hide();
-		$("#createBook").show();
+		//$(".lowerPage").hide();
+		//$("#createBook").show();
 		$("#createBookButton").on('click', function(e) {
 			event.preventDefault();
 			var formData = $("#createBook").serialize();

@@ -33,19 +33,20 @@
       
       <div class="lowerPage">
         <button id="addBook">Add Book</button>
-        <div id="results">
+       
           <ul class="list-group" id="books-list">
             <script id="books-template" type="text/x-handlebars-template">
               {{#each books}}
                 <li class="list-group-item book" data-id="{{_id}}">
                   <p><b>Contributor: </b>{{contributor}}</p>
-                  <p><b>Title:  </b>{{title}}</p>
-                  <p><b>Author:  </b>{{author}}</p>
-                  <p><b>Genre:  </b>{{genre}}</p>
+                  <p><b>Title: </b>{{title}}</p>
+                  <p><b>Author: </b>{{author}}</p>
+                  <p><b>Genre: </b>{{genre}}</p>
+                </li>
                 {{/each}}
             </script>
           </ul>
-        </div>
+    
       </div>
 
       <div class ="addBookForm">

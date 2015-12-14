@@ -3,14 +3,14 @@
   "version": "1.0.0",
   "description": "An app for trading book recommendations",
   "main": "server.js",
-    "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nwimmer123/project-01.git"
   },
-    "author": "nwimmer123",
+  "author": "nwimmer123",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/nwimmer123/project-01/issues"
@@ -18,7 +18,13 @@
   "homepage": "https://github.com/nwimmer123/project-01#readme",
   "dependencies": {
     "body-parser": "^1.14.1",
+    "cookie-parser": "^1.4.0",
+    "express": "^4.13.3",
+    "express-session": "^1.12.1",
+    "handlebars": "^4.0.5",
     "mongoose": "^4.3.0",
-    "express": "^4.13.3"
-  },
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^3.1.0"
+  }
 }
