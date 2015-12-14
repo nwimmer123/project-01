@@ -5,15 +5,21 @@ $(document).ready(function() {
 	var baseUrl = '/api/books';
 
 	//showing books on the homepage
+	//i want these to append to a distinct form each time, so when I go to capture 
+	//a specific book later, there is something to refence later as the selector
 	$.ajax({
 		method: 'GET',
 		url: baseUrl,
 		success: function showBooks (data) {
 			data.forEach(function (element) {
+				//debugger;
+				console.log(element._id);
+				$(".bookBox").append('<li class="list-group-item book" data-id="' + element._id + '">');
 				$(".bookBox").append("<br><p>" + "<b>Contributor:  </b>" + element.contributor + "</p>");
 				$(".bookBox").append("<p>" + "<b>Title:  </b>" + element.title + "</p>");
 				$(".bookBox").append("<p>" + "<b>Author:  </b>" + element.author + "</p>");
 				$(".bookBox").append("<p>" + "<b>Genre:  </b>" + element.genre + "</p><br>");
+				$(".bookBox").append("</div>");
 			});
 		}
 
@@ -27,7 +33,7 @@ $(document).ready(function() {
 
 		//send new book data to server and reload page to display it
 		console.log("CLICKed the Add Book Button");
-		$(".bookBox").hide();
+		$(".lowerPage").hide();
 		$("#createBook").show();
 		$("#createBookButton").on('click', function(e) {
 			event.preventDefault();
@@ -43,4 +49,14 @@ $(document).ready(function() {
 			location.reload();
 		});
 	});
+
+	// $(".bookBox").on("click", function(e) {
+	// 	console.log("CLICKED book box");
+	// 	var bookId = $(this).data.title;
+	// 	console.log(bookId);
+
+
+	// });
+
+
  });
