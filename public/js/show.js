@@ -18,7 +18,7 @@ $(document).ready(function() {
 	var id = idArray[idArray.length-1];
     console.log(id);
 
-//make a delete function
+	//deletes selected book and returns user to homepage
 	$('#deleteBook').on('click', function(e){
 		e.preventDefault();
 		console.log("Clicked Delete Button");
@@ -30,6 +30,13 @@ $(document).ready(function() {
 			}
 		});
 	location.href = '/';
+	});
+
+	//edits current entry
+	$("#editEntry").on('click', function(e){
+		e.preventDefault();
+		console.log("Clicked EDIT button");
+		console.log("ID I want to edit", id);
 	});
 
  });
