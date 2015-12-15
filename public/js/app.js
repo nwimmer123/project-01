@@ -12,6 +12,7 @@ $(document).ready(function() {
 	$.get(baseUrl, function (data) {
 		var dataHtml = template({ books: data});
 		$("#books-list").append(dataHtml);
+		console.log("other get!!");
 	});
 
 	//hide add book field
@@ -43,11 +44,11 @@ $(document).ready(function() {
 	$(".lowerPage").on("click", ".book", function(e) {
 		console.log("CLICKED book box");
 		var id = $(this).data("id");
-        console.log(id);
-        $.ajax ({
-        	method: 'GET',
-        	url: baseUrl + '/' + id,
-        });
+		console.log(id);
+		$.ajax ({
+			method: 'GET',
+			url: baseUrl + '/' + id,
+		});
 	});
 
 

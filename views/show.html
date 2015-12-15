@@ -22,9 +22,21 @@
   <body>
     <div class="jumbotron">
       <div class="container">
-        <h1>Current Book Title</h1>
-        <p>Current Author name</p>
+            <script id="books-template" type="text/x-handlebars-template">
+              {{#each books}}
+                <li class="list-group-item book" data-id="{{_id}}">
+                  <p><b>Contributor: </b>{{contributor}}</p>
+                  <p><b>Title: </b>{{title}}</p>
+                  <p><b>Author: </b>{{author}}</p>
+                  <p><b>Genre: </b>{{genre}}</p>
+                </li>
+                {{/each}}
+            </script>
         
+      </div>
+
+      <div class ="container bookDisplay">
+        BOOK INFO WILL GO HERE
       </div>
 
       <div class ="updateBookForm">
@@ -37,11 +49,9 @@
         </form>
       </div>
       
-      <div class="lowerPage">
+    
         <button id="deleteBook">Delete Book</button>
-        <div class ="container bookBisplay">
-        	BOOK INFO WILL GO HERE
-        </div>
-      </div>
+
+     
   </body>
 </html>

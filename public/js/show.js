@@ -4,4 +4,8 @@ $(document).ready(function() {
 
 	console.log('SANITY CHECK!! app.js loaded!');
 
+		//handlebars set up
+	var source = $('#books-template').html();
+	var template = Handlebars.compile(source);
+
  });

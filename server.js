@@ -30,16 +30,13 @@ app.get('/show', function homepage (req, res) {
 });
 
 
-//failed
-app.get('api/book/:id', function createSingleBook(req, res) {
-	console.log("in the get One");
+//getting one book
+app.get('/api/books/:id', function createSingleBook(req, res) {
 	//get book by id and send it to views/show.html
 	db.Book.findOne({_id: req.params.id}, function(err, book) {
-		console.log("in the get One AGAIN!");
-		console.log(req.params.id);
+		console.log("req params id is",req.params.id);
 		res.json(book);
-		console.log(book);
-		console.log("Books sent to show!");
+		console.log("Books sent to show!", book);
 	});
 });
 
