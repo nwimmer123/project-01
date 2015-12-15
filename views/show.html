@@ -1,3 +1,4 @@
+//this will be the html of the page displaying individual book and reviews
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,33 +9,34 @@
 
     <!-- STYLESHEETS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 
     <!-- VENDOR SCRIPTS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  
-    <!-- handlebars -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.3/handlebars.min.js"></script>
 
     <!-- APPLICATION SCRIPTS -->
-    <script src="/js/show.js"></script>
+    <script src="js/show.js"></script>
   </head>
 
   <body>
     <div class="jumbotron">
       <div class="container">
-      <h1>{{title}}</h1>
-      <h4>By: {{author}}</h4>
+            <script id="books-template" type="text/x-handlebars-template">
+        
+                <li class="list-group-item book" data-id="{{_id}}">
+                  <p><b>Contributor: </b>{{contributor}}</p>
+                  <p><b>Title: </b>{{title}}</p>
+                  <p><b>Author: </b>{{author}}</p>
+                  <p><b>Genre: </b>{{genre}}</p>
+                </li>
+          
+            </script>
+        
       </div>
 
       <div class ="container bookDisplay">
-
-        <li class="list-group-item book" data-id="{{_id}}">
-          <p><b>Contributor: </b>{{contributor}}</p>
-          <p><b>Genre: </b>{{genre}}</p>
-        </li>
-
+        BOOK INFO WILL GO HERE
       </div>
 
       <div class ="updateBookForm">
@@ -46,8 +48,10 @@
           <button type="submit" id="createBookButton">Update Book</button>
         </form>
       </div>
-      s
+      
+    
         <button id="deleteBook">Delete Book</button>
 
+     
   </body>
 </html>
