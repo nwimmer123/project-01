@@ -40,6 +40,7 @@ $(document).ready(function() {
 		console.log("CLICKED book box");
 		var id = $(this).data("id");
 		console.log(id);
+		//location.href = "/views/show"; 
 		location.href = baseUrl+"/"+id;
 	});
 

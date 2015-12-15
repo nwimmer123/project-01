@@ -29,8 +29,12 @@ app.get('/', function homepage (req, res) {
 });
 
 app.get('/show', function homepage (req, res) {
-  res.sendFile(__dirname + '/views/show.html');
+  res.sendFile(__dirname + '/views/show.hbs');
 });
+
+// app.get('/books/:id', function homepage (req, res) {
+// 	res.sendFile(__dirname + '/views.show.hbs')
+// });
 
 //getting one book
 app.get('/api/books/:id', function createSingleBook(req, res) {
@@ -49,7 +53,6 @@ app.get('/api/books', function booksIndex(req, res) {
 
 });
 
-
 //server sending data from create book form to database and then 
 //sending same data back to client
 
@@ -62,8 +65,16 @@ app.post('/api/books', function createBook(req, res){
 	});
 });
 
-
-
+//delete item 
+app.delete('/api/books/:id', function destroy (req, res){
+	var bookId = (req.params.id);
+	db.Book.remove({_id: bookId}, function(err, book) {
+		
+		console.log("req.param.id that I want to delete is:", bookId);
+		if (err) {console.log('ERROR:', err); }
+		res.status(204).send();
+	});
+});
 
 /**********
  * SERVER *
