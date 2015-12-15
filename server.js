@@ -6,10 +6,13 @@ var express = require('express');
 var app = express();
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
+var html = require('html');
+var hbs = require('hbs')
 
 // serve static files from public folder
 app.use('/',express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: true }));
+app.set('view engine', 'hbs');
 
 /************
  * DATABASE *
@@ -34,9 +37,8 @@ app.get('/show', function homepage (req, res) {
 app.get('/api/books/:id', function createSingleBook(req, res) {
 	//get book by id and send it to views/show.html
 	db.Book.findOne({_id: req.params.id}, function(err, book) {
-		console.log("req params id is",req.params.id);
-		res.json(book);
-		console.log("Books sent to show!", book);
+		console.log(book);
+		res.render("show",book);
 	});
 });
 

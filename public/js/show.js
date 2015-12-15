@@ -8,4 +8,8 @@ $(document).ready(function() {
 	var source = $('#books-template').html();
 	var template = Handlebars.compile(source);
 
+// I need to write code here that will get the book 
+//sent over by the server
+
+
  });

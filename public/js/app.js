@@ -45,10 +45,12 @@ $(document).ready(function() {
 		console.log("CLICKED book box");
 		var id = $(this).data("id");
 		console.log(id);
-		$.ajax ({
-			method: 'GET',
-			url: baseUrl + '/' + id,
-		});
+		// $.ajax ({
+		// 	method: 'GET',
+		// 	url: baseUrl + '/' + id,
+		// });
+		//redirect user to show page
+		location.href = baseUrl+"/"+id;
 	});
 
 
