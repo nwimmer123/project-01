@@ -8,7 +8,13 @@ $(document).ready(function() {
 	var source = $('#books-template').html();
 	var template = Handlebars.compile(source);
 
+	//home button
+	$('#thanos').on('click', function(e) {
+		console.log("You clicked thanos!");
+		location.href = "/";
+	});
+
 //make a delete function
-	$('body')
+	//$('body')
 
  });

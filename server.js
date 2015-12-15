@@ -7,7 +7,7 @@ var app = express();
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var html = require('html');
-var hbs = require('hbs')
+var hbs = require('hbs');
 
 // serve static files from public folder
 app.use('/',express.static(__dirname + '/public'));
