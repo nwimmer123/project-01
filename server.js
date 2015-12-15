@@ -74,6 +74,20 @@ app.delete('/api/books/:id', function destroy (req, res){
 	});
 });
 
+//update book data
+app.put('/api/books/:id', function updateBook (req, res) {
+	var bookId = (req.params.id);
+	db.Book.findByIdAndUpdate(bookId, req.body, function (err, book) {
+		if (err) {console.log('ERROR:', err); }
+		console.log("I have found this book and would like to update it:", book);
+		book.save(function (err, savedBook) {
+			if (err) {console.log('ERROR:', err); }
+			console.log("WHO are you saved book?", savedBook);
+			res.json(savedBook);
+		});
+	});
+});
+
 /**********
  * SERVER *
  **********/

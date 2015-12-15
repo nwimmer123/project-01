@@ -23,13 +23,13 @@ $(document).ready(function() {
 		e.preventDefault();
 		console.log("Clicked Delete Button");
 		$.ajax({
-			type: 'DELETE',
+			method: 'DELETE',
 			url: baseUrl + '/' + id,
 			success: function(data) {
 				console.log("I deleted this", id);
 			}
 		});
-	location.href = '/';
+	location.href = "/";
 	});
 
 	//edits current entry
@@ -44,6 +44,18 @@ $(document).ready(function() {
 		console.log("I clicked the Save Changes button!");
 		var updatedBook = $("#updateBook").serialize();
 		console.log("json object I want to send to server:", updatedBook);
+		$.ajax ({
+			method: 'PUT',
+			url: baseUrl + '/' + id,
+			data: updatedBook,
+			success: function update (book) {
+				console.log("In update Success function!!");
+				$.get(baseUrl + '/' + id, function () {
+					location.href = 'baseUrl + '/' + id';
+				});
+			}
+		});
+		location.reload();
 	});
 
  });
