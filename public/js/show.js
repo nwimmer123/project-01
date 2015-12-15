@@ -39,4 +39,11 @@ $(document).ready(function() {
 		console.log("ID I want to edit", id);
 	});
 
+	$("#saveChangesButton").on('click', function(e) {
+		e.preventDefault();
+		console.log("I clicked the Save Changes button!");
+		var updatedBook = $("#updateBook").serialize();
+		console.log("json object I want to send to server:", updatedBook);
+	});
+
  });
