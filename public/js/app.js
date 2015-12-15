@@ -44,7 +44,11 @@ $(document).ready(function() {
 		console.log("CLICKED book box");
 		var id = $(this).data("id");
         console.log(id);
+        $.ajax ({
+        	method: 'GET',
+        	url: baseUrl + '/' + id,
+        });
 	});
 
-	
+
  });
