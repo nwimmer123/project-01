@@ -65,12 +65,10 @@ app.post('/api/books', function createBook(req, res){
 	});
 });
 
-//delete item 
+//delete item selected on show page
 app.delete('/api/books/:id', function destroy (req, res){
 	var bookId = (req.params.id);
 	db.Book.remove({_id: bookId}, function(err, book) {
-		
-		console.log("req.param.id that I want to delete is:", bookId);
 		if (err) {console.log('ERROR:', err); }
 		res.status(204).send();
 	});

@@ -17,11 +17,13 @@ $(document).ready(function() {
 
 	//addBook button actions
 	$("#addBook").on('click', function(e) {
+		e.preventDefault();
 
 		//send new book data to server and reload page to display it
 		console.log("CLICKed the Add Book Button");
 		$("#createBookButton").on('click', function(e) {
-			event.preventDefault();
+			console.log("Clicked on CREATE BOOK button!");
+			e.preventDefault();
 			var formData = $("#createBook").serialize();
 			$.ajax ({
 				method: 'POST',
