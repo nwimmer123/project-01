@@ -29,9 +29,44 @@
         
       </div>
 
+
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Add Book
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Add a Book</h4>
+      </div>
+      
+      <div class="modal-body">
+        <div class ="addBookForm">
+          <form id="createBook">
+            <input type="text" name="contributor" id = "contributor" placeholder="Contributor">
+            <input type="text" name="title" id ="title" placeholder="Title">
+            <input type="text" name="author" id="author" placeholder="Author">
+            <input type="text" name="genre" id="genre" placeholder="Genre">
+          </form>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" id="createBookButton">CREATE BOOK</button>
+      </div>
+    </div>
+  </div>
+</div>
+
       <div class="lowerPage">
-        <button id="addBook">Add Book</button>
-       
+
           <ul class="list-group" id="books-list">
             <script id="books-template" type="text/x-handlebars-template">
               {{#each books}}
@@ -47,15 +82,8 @@
     
       </div>
 
-      <div class ="addBookForm">
-        <form id="createBook">
-          <input type="text" name="contributor" id = "contributor" placeholder="Contributor">
-          <input type="text" name="title" id ="title" placeholder="Title">
-          <input type="text" name="author" id="author" placeholder="Author">
-          <input type="text" name="genre" id="genre" placeholder="Genre">
-          <button type="submit" id="createBookButton">CREATE BOOK</button>
-        </form>
-      </div>
+
+
       
   </body>
 </html>

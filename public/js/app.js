@@ -16,15 +16,15 @@ $(document).ready(function() {
 	});
 
 	//hide add book field
-	$("#createBook").hide();
+	//$("#createBook").hide();
 
 	//addBook button actions
 	$("#addBook").on('click', function(e) {
 
 		//send new book data to server and reload page to display it
 		console.log("CLICKed the Add Book Button");
-		$(".lowerPage").hide();
-		$("#createBook").show();
+		//$(".lowerPage").hide();
+		//$("#createBook").show();
 		$("#createBookButton").on('click', function(e) {
 			event.preventDefault();
 			var formData = $("#createBook").serialize();
