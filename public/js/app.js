@@ -15,16 +15,11 @@ $(document).ready(function() {
 		console.log("other get!!");
 	});
 
-	//hide add book field
-	//$("#createBook").hide();
-
 	//addBook button actions
 	$("#addBook").on('click', function(e) {
 
 		//send new book data to server and reload page to display it
 		console.log("CLICKed the Add Book Button");
-		//$(".lowerPage").hide();
-		//$("#createBook").show();
 		$("#createBookButton").on('click', function(e) {
 			event.preventDefault();
 			var formData = $("#createBook").serialize();
@@ -45,11 +40,6 @@ $(document).ready(function() {
 		console.log("CLICKED book box");
 		var id = $(this).data("id");
 		console.log(id);
-		// $.ajax ({
-		// 	method: 'GET',
-		// 	url: baseUrl + '/' + id,
-		// });
-		//redirect user to show page
 		location.href = baseUrl+"/"+id;
 	});
 

@@ -13,6 +13,8 @@ $(document).ready(function() {
 	});
 
 //make a delete function
-	//$('body')
+// 	$('#deleteBook').on('click', function(e){
+// 	console.log("Clicked Delete Button");
+// })
 
  });

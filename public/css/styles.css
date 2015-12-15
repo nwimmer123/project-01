@@ -4,5 +4,17 @@ body {
 
 #thanos {
 	float: right;
-	height: 150px;
+    height: 150px;
+    margin: 15px;
+    border-radius: 30px;
+}
+
+li {
+	margin: 20px;
+    border-radius: 25px;
+    font-size: large;
+}
+
+#editEntry {
+	margin-left: 15px;
 }

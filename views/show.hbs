@@ -28,20 +28,19 @@
         <h1>{{title}}</h1>
         <h4>By: {{author}}</h4>
       </div>
+    </div>
 
       <div class ="container bookDisplay">
-
         <li class="list-group-item book" data-id="{{_id}}">
           <p><b>Contributor: </b>{{contributor}}</p>
           <p><b>Genre: </b>{{genre}}</p>
-        </li>
-
+        </li>     
       </div>
 
       <br>
 
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Edit Entry</button>
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" id="editEntry">Edit Entry</button>
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -52,7 +51,6 @@
         <h4 class="modal-title" id="myModalLabel">Edit Entry</h4>
       </div>
       <div class="modal-body">
-
 
         <div class ="updateBookForm">
           <form id="updateBook">
@@ -80,12 +78,7 @@
   </div>
 </div>
 
-
-
-
-
-      
-        <button id="deleteBook">Delete Book</button>
+        <button type ="button" class = "btn btn-danger btn-lg" id="deleteBook">Delete Book</button>
 
   </body>
 </html>

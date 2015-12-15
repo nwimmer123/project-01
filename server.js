@@ -32,7 +32,6 @@ app.get('/show', function homepage (req, res) {
   res.sendFile(__dirname + '/views/show.html');
 });
 
-
 //getting one book
 app.get('/api/books/:id', function createSingleBook(req, res) {
 	//get book by id and send it to views/show.html
@@ -46,8 +45,6 @@ app.get('/api/books/:id', function createSingleBook(req, res) {
 app.get('/api/books', function booksIndex(req, res) {
 	db.Book.find({}, function(err, books) {
 		res.json(books);
-		//console.log(books);
-		//console.log("Books sent!");
 	});
 
 });
