@@ -62,12 +62,13 @@ app.get('/api/books/:id', function createSingleBook(req, res) {
 	});
 });
 
+//NOT WORKING!!
 //getting one books reviews when user requests to see the book 
 //associated with the review
 // app.get('/api/books/books_id/review_id', function revealReview(req, res) {
 // 		db.Book.findOne({_id: req.params.id}, function(err, book) {
 // 		console.log(book);
-// 		res.render("show",book.review);
+// 		res.render("show",book.reviews);
 // 	});
 // });
 
