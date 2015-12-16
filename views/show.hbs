@@ -34,8 +34,21 @@
         <li class="list-group-item book" data-id="{{_id}}">
           <p><b>Contributor: </b>{{contributor}}</p>
           <p><b>Genre: </b>{{genre}}</p>
-        </li>     
+        </li> 
+        <li class="list-group-item book" data-id="{{_id}}">Review Here{{book.reviews}}
+        </li>    
       </div>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+
+      <div id="reviews-target" class="well">
+ 
+        <p>Here is my awesome review! <small>Nathan Allen</small></p>
+      </div>
+      <button class="btn btn-primary" onclick="$('#reviews-target').append('<form method=\'POST\' action=\'/api/reviews\'><textarea name=\'review\'></textarea><input type=\'submit\'></input></form>')">+ Add a Review</button>
 
       <br>
 

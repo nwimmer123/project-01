@@ -18,3 +18,8 @@ li {
 #editEntry {
 	margin-left: 15px;
 }
+
+.book {
+	cursor: pointer; 
+	cursor: hand; 
+}
