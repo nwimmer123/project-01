@@ -87,8 +87,8 @@ app.post('/api/books/:id/reviews', function createReview(req, res){
 	console.log("This should be the books ID", bookId);
 	
 	// This makes the post fail!!!!
-	// var newReview = new Review(req.body.review);
-	// console.log("This is the new review as a Schema:", newReview);
+	var newReview = new Review(req.body);
+	console.log("This is the new review as a Schema:", newReview);
 
 	// db.Review.create(req.body, function(err, review) {
 	// 	if (err) {console.log('ERROR:', err); }
