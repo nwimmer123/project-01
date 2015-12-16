@@ -85,11 +85,16 @@ app.post('/api/books/:id/reviews', function createReview(req, res){
 	console.log ("The following should be the new review going into the database:", req.body);
 	var bookId = req.params.id;
 	console.log("This should be the books ID", bookId);
-	
-	// This makes the post fail!!!!
+
 	var newReview = new Review(req.body);
 	console.log("This is the new review as a Schema:", newReview);
 
+	db.Book.findOne({_id: bookId}, function (err,foundBook) {
+		foundBook.reviews.push(newReview);
+		foundBook.save(function (err, savedBook) {
+			res.json(newReview);
+		});
+	});
 	// db.Review.create(req.body, function(err, review) {
 	// 	if (err) {console.log('ERROR:', err); }
 	// 	//console.log(book);
