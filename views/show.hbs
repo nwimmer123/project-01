@@ -36,30 +36,9 @@
           <p><b>Genre: </b>{{genre}}</p>
         </li>
         
-        <button class="btn btn-primary" onclick="$('#reviews-target').append('<form method=\'POST\' action=\'/api/reviews\'><textarea name=\'review\'></textarea><input type=\'submit\'></input></form>')">+ Add a Review</button>
+        <!-- <button class="btn btn-primary" onclick="$('#reviews-target').append('<form method=\'POST\' action=\'/api/reviews\'><textarea name=\'review\'></textarea><input type=\'submit\'></input></form>')">+ Add a Review</button>  -->
 
 
-
-
-        <div class="reviewArea">
-          {{#each reviews}}
-          <li class="list-group-item reviewBox" data-id="{{_id}}">
-            <p id="reviewer"> {{reviewer}} </p>
-            <p class ="push-right" id="date"> {{date}} </p>
-            <p id="review"> {{review}} </p>
-            <button id="Add Review" >Add Review</button>
-            {{/each}}
-          </li>
-        </div>
-
-
-      
-      <br>
-
-      <div id="reviews-target" class="well">
- 
-        <p>Here is my awesome review! <small>Nathan Allen</small></p>
-      </div>
 
 
 <!-- Update Button trigger modal -->
@@ -101,7 +80,25 @@
   </div>
 </div>
 
-        <button type ="button" class = "btn btn-danger btn-lg" id="deleteBook">Delete Book</button>
+<button type ="button" class = "btn btn-danger btn-lg" id="deleteBook">Delete Book</button>
+
+        <div class="reviewArea">
+          {{#each reviews}}
+          <li class="list-group-item reviewBox" data-id="{{_id}}">
+            <p id="reviewer"> {{reviewer}} </p>
+            <p id="date"> {{date}} </p>
+            <p id="review"> {{review}} </p>
+            {{/each}}
+          </li>
+        </div>
+
+        <div class="addReview">
+          <form class="reviewBox" data-id="{{_id}}">
+            <input type="text" name="reviewer" id="reviewer" placeholder="Reviewer"> 
+            <input type="text" name="review" id="review" placeholder="Review"> 
+            <button type="submit" id="addReviewButton" >Add Review</button>
+          </form>
+        </div>
 
 
   </body>

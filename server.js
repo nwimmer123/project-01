@@ -62,23 +62,11 @@ app.get('/api/books/:id', function createSingleBook(req, res) {
 	});
 });
 
-//NOT WORKING!!
-//getting one books reviews when user requests to see the book 
-//associated with the review
-// app.get('/api/books/books_id/review_id', function revealReview(req, res) {
-// 		db.Book.findOne({_id: req.params.id}, function(err, book) {
-// 		console.log(book);
-// 		res.render("show",book.reviews);
-// 	});
-// });
-
-
 //server requesting data from database/;
 app.get('/api/books', function booksIndex(req, res) {
 	db.Book.find({}, function(err, books) {
 		res.json(books);
 	});
-
 });
 
 //server sending data from create book form to database and then 
@@ -90,6 +78,23 @@ app.post('/api/books', function createBook(req, res){
 		//console.log(book);
 		res.json(book);
 	});
+});
+
+//putting reviews into their book and returning them to the page
+app.post('/api/books/:id/reviews', function createReview(req, res){
+	console.log ("The following should be the new review going into the database:", req.body);
+	var bookId = req.params.id;
+	console.log("This should be the books ID", bookId);
+	
+	// This makes the post fail!!!!
+	// var newReview = new Review(req.body.review);
+	// console.log("This is the new review as a Schema:", newReview);
+
+	// db.Review.create(req.body, function(err, review) {
+	// 	if (err) {console.log('ERROR:', err); }
+	// 	//console.log(book);
+	// 	res.json(review);
+	// });
 });
 
 //delete item selected on show page

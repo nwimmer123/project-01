@@ -58,4 +58,21 @@ $(document).ready(function() {
 		location.reload();
 	});
 
+		//send new review data to server and reload page to display it
+	$("#addReviewButton").on('click', function(e) {
+		console.log("Clicked on CREATE REVIEW button!");
+		e.preventDefault();
+		var formData = $(".reviewBox").serialize();
+		console.log(formData);
+		$.ajax ({
+			method: 'POST',
+			url: '/api/books/' + id + '/reviews',
+			data: formData,
+			success: function addBook (data){
+				console.log(data);
+			}
+		});
+		//location.reload();
+	});
+
  });
