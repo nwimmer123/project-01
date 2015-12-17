@@ -1,3 +1,4 @@
+// TODO : remove unused or commented-out code from production versions
 // var mongoose = require('mongoose');
 // var	Schema = mongoose.Schema;
 // //var	passportLocalMongoose = require('passport-local-mongoose');

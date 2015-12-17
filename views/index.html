@@ -25,12 +25,12 @@
   </head>
 
   <body class="homepage">
- 
+
     <div class="top container">
       <h1>Welcome to Read It!</h1>
       <h2>Book reviews and discussion</h2>
     </div>
-
+<!-- TODO: fix indentation -->
 <!-- Button trigger modal -->
 <div class="container clearfix">
   <button type="button" class="btn btn-primary btn-lg pull-right" data-toggle="modal" data-target="#myModal" id="addBook">Add Book</button>
@@ -44,7 +44,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">Add a Book</h4>
       </div>
-      
+
       <!-- create book form -->
       <div class="modal-body">
         <div class ="addBookForm">
@@ -58,7 +58,7 @@
             <div class="form-group">
               <input type="text" class="form-control" name="author" id="author" placeholder="Author">
             </div>
-
+            <!-- TODO: remove unused or commented-out code -->
             <!-- make this a dropdown menu -->
              <!-- <div class="form-group">
               <input type="text" class="form-control" name="genre" id="genre" placeholder="Genre">
@@ -67,9 +67,9 @@
             <!-- dropdown attempt -->
 
             <select name="genre" class="form-control" id="genre">
-              <option value="Sci-Fi">Sci-Fi</option> 
-              <option value="Fantasy">Fantasy</option> 
-              <option value="Comics">Comics</option> 
+              <option value="Sci-Fi">Sci-Fi</option>
+              <option value="Fantasy">Fantasy</option>
+              <option value="Comics">Comics</option>
               <option value="Graphic Novel">Graphic Novel</option>
               <option value="Drama">Drama</option>
               <option value="Nonfiction">Nonfiction</option>
@@ -97,7 +97,7 @@
           </form>
         </div>
       </div>
-      
+
       <!-- create book modals buttons -->
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -106,7 +106,7 @@
     </div>
   </div>
 </div>
-
+      <!-- Thank you for using handlebars :) -->
       <div class="lowerPage">
         <ul class="list-group" id="books-list">
           <script id="books-template" type="text/x-handlebars-template">
@@ -120,7 +120,7 @@
               </li>
               {{/each}}
           </script>
-        </ul>   
-    </div>      
+        </ul>
+    </div>
   </body>
 </html>

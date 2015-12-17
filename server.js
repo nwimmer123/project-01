@@ -1,3 +1,12 @@
+/****************************
+Justin's notes.
+Solid work on your server.js.  For production quality work,
+remove all logs to the console.  This slows down performance
+server-side. Remove unused and commented out code; it is
+unecessary for your project to work.
+*****************************/
+
+// TODO: Remove unused dependencies from package.json and server.js (session, passport, passport-local, etc.)
 // SERVER-SIDE JAVASCRIPT
 
 //require express in our app
@@ -28,6 +37,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+// TODO: remove unused or commented-out code from production versions of work -jc
 // passport config
 //passport.use(new LocalStrategy(User.authenticate()));
 // passport.serializeUser(User.serializeUser());
@@ -38,6 +48,7 @@ app.use(passport.session());
  ************/
 
 var db = require('./models');
+// TODO: remove unused or commented-out code from production versions of work -jc
 //var Post = require('./models/post');
 var User = require('./models/user');
 var Review = require('./models/review');
@@ -58,7 +69,8 @@ app.get('/show', function homepage (req, res) {
 app.get('/api/books/:id', function createSingleBook(req, res) {
 	//get book by id and send it to views/show.html
 	db.Book.findOne({_id: req.params.id}, function(err, book) {
-		console.log(book);
+    // TODO: consider adding error handling here. if err, then return an error. Also remove all console logs from production versions of work -jc
+    console.log(book);
 		res.render("show",book);
 	});
 });
@@ -66,16 +78,19 @@ app.get('/api/books/:id', function createSingleBook(req, res) {
 //server requesting data from database/;
 app.get('/api/books', function booksIndex(req, res) {
 	db.Book.find({}, function(err, books) {
+    // TODO: consider adding error handling here. if err, then return an error. -jc
 		res.json(books);
 	});
 });
 
-//server sending data from create book form to database and then 
+//server sending data from create book form to database and then
 //sending same data back to client
 app.post('/api/books', function createBook(req, res){
+  // TODO: remove all console logs from production versions of work -jc
 	console.log ("The following should be the new book going into the database:", req.body);
 	db.Book.create(req.body, function(err, book) {
 		if (err) {console.log('ERROR:', err); }
+    // TODO: remove all console logs from production versions -jc
 		//console.log(book);
 		res.json(book);
 	});
@@ -83,23 +98,28 @@ app.post('/api/books', function createBook(req, res){
 
 //putting reviews into their book and returning them to the page
 app.post('/api/books/:id/reviews', function createReview(req, res){
+  // TODO: remove all console logs from production versions -jc
 	console.log ("The following should be the new review going into the database:", req.body);
-	
+
 	var bookId = req.params.id;
-	
+	// TODO: remove all console logs from production versions -jc
 	console.log("This should be the books ID", bookId);
 
+  // TODO: remove vulgarities from comments and code, please
 	// Establishing date of review insertion/creation fucker
 	var d = new Date();
 	var dateValue = d.getFullYear() + "/" + (d.getMonth()+1) + "/" + d.getDate();
 
 	var newReview = new Review(req.body);
 	newReview.date = dateValue;
+  // TODO: remove all console logs from production versions -jc
 	console.log("This is the new review as a Schema:", newReview);
 
 	db.Book.findOne({_id: bookId}, function (err,foundBook) {
+    // TODO: consider adding error handling here. if err, then return an error. -jc
 		foundBook.reviews.push(newReview);
 		foundBook.save(function (err, savedBook) {
+      // TODO: consider adding error handling here. if err, then return an error. -jc
 			res.json(newReview);
 		});
 	});
@@ -119,10 +139,12 @@ app.put('/api/books/:id', function updateBook (req, res) {
 	var bookId = (req.params.id);
 	db.Book.findByIdAndUpdate(bookId, req.body, function (err, book) {
 		if (err) {console.log('ERROR:', err); }
+    // TODO: remove all console logs from production versions -jc
 		console.log("I have found this book and would like to update it:", book);
 		book.save(function (err, savedBook) {
 			if (err) {console.log('ERROR:', err); }
-			console.log("WHO are you saved book?", savedBook);
+      // TODO: remove all console logs from production versions -jc
+      console.log("WHO are you saved book?", savedBook);
 			res.json(savedBook);
 		});
 	});

@@ -13,7 +13,7 @@
     <!-- VENDOR SCRIPTS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  
+
     <!-- handlebars -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.3/handlebars.min.js"></script>
 
@@ -64,14 +64,15 @@
                   <div class="form-group">
                     <input type="text" class="form-control" name="author" id="author" placeholder="Author" value="{{author}}">
                   </div>
+                  <!-- TODO: Please remove unused or commented-out code from production versions -jc -->
                   <!-- <div class="form-group">
                     <input type="text" class="form-control" name="genre" id="genre" placeholder="Genre" value="{{genre}}">
                   </div> -->
 
                   <select name="genre" class="form-control" id="genre">
-                    <option value="Sci-Fi">Sci-Fi</option> 
-                    <option value="Fantasy">Fantasy</option> 
-                    <option value="Comics">Comics</option> 
+                    <option value="Sci-Fi">Sci-Fi</option>
+                    <option value="Fantasy">Fantasy</option>
+                    <option value="Comics">Comics</option>
                     <option value="Graphic Novel">Graphic Novel</option>
                     <option value="Drama">Drama</option>
                     <option value="Nonfiction">Nonfiction</option>
@@ -132,14 +133,14 @@
 
       <div class="addReview">
         <form class="form-horizontal reviewBox" data-id="{{_id}}">
-          <input type="hidden" name="date" id="date" data-date-poop=""> 
+          <input type="hidden" name="date" id="date" data-date-poop="">
           <div class="form-group">
             <input type="text" class="form-control" name="reviewer" id="reviewerInput" placeholder="Reviewer">
-          </div>            
+          </div>
           <div class="form-group">
-            <input type="text" class="form-control" name="review" id="reviewInput" placeholder="Review">         
-          </div> 
-          
+            <input type="text" class="form-control" name="review" id="reviewInput" placeholder="Review">
+          </div>
+
           <button type="submit" class="btn btn-primary btn-lg" id="addReviewButton" >Add Review</button>
 
         </form>
