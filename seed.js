@@ -7,6 +7,7 @@ var books = [
 		author: "Peter Hamilton",
 		genre: "Sci-fi",
 		image:"http://sfreviews.net/large_covers/reality_dysfunction.jpg",
+		publicationDate: "1996",
 		},
 		{
 		contributor: "Noah",
@@ -14,6 +15,7 @@ var books = [
 		author: "J.R.R. Tolkien",
 		genre: "Fantasy",
 		image: "http://www.pagepulp.com/wp-content/527.jpg",
+		publicationDate: "1954",
 		},
 		{
 		contributor: "Noah",
@@ -21,6 +23,7 @@ var books = [
 		author: "Dan Simmons",
 		genre: "Sci-fi",
 		image: "http://ecx.images-amazon.com/images/I/51zwyTJNlWL.jpg",
+		publicationDate: "1989",
 		}
 	];
 

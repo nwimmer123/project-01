@@ -9,6 +9,7 @@ var BookSchema = new Schema({
   author: String,
   genre: String,
   image: String,
+  publicationDate: String,
   reviews: [Review.schema]
 });
 
