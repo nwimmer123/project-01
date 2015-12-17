@@ -12,7 +12,7 @@ body {
 
 li {
 	margin: 20px;
-    border-radius: 25px;
+    border-radius: 10px;
     font-size: large;
 }
 
@@ -77,7 +77,7 @@ li {
 	text-shadow: 4px 4px black;
 }
  .wholepage {
- 		background-color: #810828;
+ 	background-color: #810828;
  }
 
 .reviewsBook {

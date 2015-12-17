@@ -36,7 +36,9 @@
         <img src={{image}} alt="Book Jacket" class="homepageImages">
         <p><b>Contributor: </b>{{contributor}}</p>
         <p><b>Genre: </b>{{genre}}</p>
+        <p><b>Publisher: </b>{{publisher}}</p>
         <p><b>Publication Date: </b>{{publicationDate}}</p>
+        <p><b>Synopsis: </b>{{synopsis}}</p>
       </div>
       <!-- Update Button trigger modal -->
       <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" id="editEntry">Edit Entry</button>
@@ -64,6 +66,18 @@
                   </div>
                   <div class="form-group">
                     <input type="text" class="form-control" name="genre" id="genre" placeholder="Genre" value="{{genre}}">
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" name="publisher" id="publisher" placeholder="Publisher" value="{{publisher}}">
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" name="publicationDate" id="publicationDate" placeholder="Publication Date" value="{{publicationDate}}">
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" name="synopsis" id="synopsis" placeholder="Synopsis" value="{{synopsis}}">
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" name="imageUrl" id="imageUrl" placeholder="Image Url" value="{{imageUrl}}">
                   </div>
                 </form>
               </div>
