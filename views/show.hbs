@@ -35,11 +35,6 @@
           <p><b>Contributor: </b>{{contributor}}</p>
           <p><b>Genre: </b>{{genre}}</p>
         </li>
-        
-        <!-- <button class="btn btn-primary" onclick="$('#reviews-target').append('<form method=\'POST\' action=\'/api/reviews\'><textarea name=\'review\'></textarea><input type=\'submit\'></input></form>')">+ Add a Review</button>  -->
-
-
-
 
 <!-- Update Button trigger modal -->
 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" id="editEntry">Edit Entry</button>
@@ -82,6 +77,12 @@
 
 <button type ="button" class = "btn btn-danger btn-lg" id="deleteBook">Delete Book</button>
 
+<!-- Wrong format, I want a medium sized white box -->
+<div class="reviewTitle">
+  <li class="list-group-item">Book Reviews</li>
+</div>
+
+
         <div class="reviewArea">
           {{#each reviews}}
           <li class="list-group-item reviewBox" data-id="{{_id}}">
@@ -96,6 +97,7 @@
           <form class="reviewBox" data-id="{{_id}}">
             <input type="text" name="reviewer" id="reviewer" placeholder="Reviewer"> 
             <input type="text" name="review" id="review" placeholder="Review"> 
+            <input type="hidden" name="date" id="date" data-date-poop=""> 
             <button type="submit" id="addReviewButton" >Add Review</button>
           </form>
         </div>

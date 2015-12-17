@@ -83,10 +83,17 @@ app.post('/api/books', function createBook(req, res){
 //putting reviews into their book and returning them to the page
 app.post('/api/books/:id/reviews', function createReview(req, res){
 	console.log ("The following should be the new review going into the database:", req.body);
+	
 	var bookId = req.params.id;
+	
 	console.log("This should be the books ID", bookId);
 
+	// Establishing date of review insertion/creation fucker
+	var d = new Date();
+	var dateValue = d.getFullYear() + "/" + (d.getMonth()+1) + "/" + d.getDate();
+
 	var newReview = new Review(req.body);
+	newReview.date = dateValue;
 	console.log("This is the new review as a Schema:", newReview);
 
 	db.Book.findOne({_id: bookId}, function (err,foundBook) {
@@ -95,11 +102,6 @@ app.post('/api/books/:id/reviews', function createReview(req, res){
 			res.json(newReview);
 		});
 	});
-	// db.Review.create(req.body, function(err, review) {
-	// 	if (err) {console.log('ERROR:', err); }
-	// 	//console.log(book);
-	// 	res.json(review);
-	// });
 });
 
 //delete item selected on show page
