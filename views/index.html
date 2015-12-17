@@ -26,10 +26,10 @@
 
   <body class="homepage">
  
-      <div class="top container">
-        <h1>Welcome to Read It!</h1>
-        <h2>Book reviews and discussion</h2>
-      </div>
+    <div class="top container">
+      <h1>Welcome to Read It!</h1>
+      <h2>Book reviews and discussion</h2>
+    </div>
 
 
 
@@ -63,6 +63,9 @@
             <div class="form-group">
               <input type="text" class="form-control" name="genre" id="genre" placeholder="Genre">
             </div>
+            <div class="form-group">
+              <input type="text" class="form-control" name="imageUrl" id="imageUrl" placeholder="Image Url">
+            </div>
           </form>
         </div>
       </div>
@@ -81,6 +84,7 @@
           <script id="books-template" type="text/x-handlebars-template">
             {{#each books}}
               <li class="list-group-item book" data-id="{{_id}}">
+                <img src={{image}} alt="Book Jacket" class="homepageImages">
                 <p><b>Contributor: </b>{{contributor}}</p>
                 <p><b>Title: </b>{{title}}</p>
                 <p><b>Author: </b>{{author}}</p>

@@ -3,21 +3,24 @@ var db = require("./models");
 var books = [
 		{
 		contributor: "Noah",
-		title: "Pandoras Star",
+		title: "Reality Dysfunction",
 		author: "Peter Hamilton",
 		genre: "Sci-fi",
+		image:"http://sfreviews.net/large_covers/reality_dysfunction.jpg",
 		},
 		{
 		contributor: "Noah",
 		title: "The Fellowship of the Ring",
 		author: "J.R.R. Tolkien",
 		genre: "Fantasy",
+		image: "http://www.pagepulp.com/wp-content/527.jpg",
 		},
 		{
 		contributor: "Noah",
 		title: "Hyperion",
 		author: "Dan Simmons",
 		genre: "Sci-fi",
+		image: "http://ecx.images-amazon.com/images/I/51zwyTJNlWL.jpg",
 		}
 	];
 

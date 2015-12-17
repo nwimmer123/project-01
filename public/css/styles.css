@@ -57,3 +57,7 @@ li {
 	opacity: 0.8;
 }
 
+.homepageImages {
+	float: right;
+	height: 150px;
+}
