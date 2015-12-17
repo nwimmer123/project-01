@@ -59,5 +59,6 @@ li {
 
 .homepageImages {
 	float: right;
-	height: 150px;
+	height: 130px;
+	opacity: 1;
 }
