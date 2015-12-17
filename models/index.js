@@ -1,6 +1,4 @@
 var mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/project-01_test");
-
 //heroku connection
 mongoose.connect( process.env.MONGOLAB_URI ||
                   process.env.MONGOHQ_URL ||
