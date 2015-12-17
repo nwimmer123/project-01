@@ -24,3 +24,19 @@ li {
 	cursor: hand; 
 }
 
+.reviewTitle {
+	text-align: center;
+}
+
+#dateDisplay {
+	float: right;
+
+}
+
+.bookDisplay {
+	margin-bottom: 15px;
+}
+
+#reviewerInput {
+	margin-top: 15px;
+}
