@@ -41,10 +41,10 @@ books.forEach(function(books){
 
 db.Book.remove({}, function(err, success){
 	if (err) { return console.log('ERROR', err); }
-	db.Book.create(books, function(err, books){
-		if (err) { return console.log('ERROR', err); }
-		console.log("all books:", books);
-		console.log("created ", books.length, " books");
+	// db.Book.create(books, function(err, books){
+	// 	if (err) { return console.log('ERROR', err); }
+	// 	console.log("all books:", books);
+	// 	console.log("created ", books.length, " books");
 		process.exit();
-	});
+	// });
 });
