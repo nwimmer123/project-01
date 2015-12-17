@@ -6,6 +6,11 @@ $(document).ready(function() {
 
 	var baseUrl = '/api/books';
 
+	//generate random image for background
+	var randomNum = Math.floor((Math.random()*10)+1);
+	var backgroundUrl = '/images/images' + randomNum + '.jpg';
+	$('.showpage').css("background", "url(" + backgroundUrl + ") no-repeat center center");
+
 	//home button
 	$('#thanos').on('click', function(e) {
 		console.log("You clicked thanos!");

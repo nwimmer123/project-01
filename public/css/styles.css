@@ -48,6 +48,12 @@ li {
 	background-size:cover;
 }
 
+.showpage{
+
+	min-height:100%;
+	background-size:cover;
+}
+
 .top {
 	font-family: 'UnifrakturMaguntia', cursive;
 	color: #CED807;
