@@ -30,7 +30,6 @@ li {
 
 #dateDisplay {
 	float: right;
-
 }
 
 .bookDisplay {
@@ -40,3 +39,21 @@ li {
 #reviewerInput {
 	margin-top: 15px;
 }
+
+.homepage{
+	background:url('/images/infinity2.jpg') no-repeat center center;
+	min-height:100%;
+	background-size:cover;
+}
+
+.top {
+	font-family: 'UnifrakturMaguntia', cursive;
+	color: #CED807;
+	margin-top: 25px;
+	text-shadow: 2px 2px #ff0000;
+}
+
+.book {
+	opacity: 0.8;
+}
+
