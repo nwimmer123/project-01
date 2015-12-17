@@ -7,6 +7,7 @@ body {
     height: 150px;
     margin: 15px;
     border-radius: 30px;
+    opacity: 0.8;
 }
 
 li {
@@ -33,9 +34,10 @@ li {
 }
 
 .bookDisplay {
-	margin-bottom: 15px;
+	margin-bottom: 12px;
     font-size: larger;
-    padding: 20px;
+    padding: 15px;
+    opacity: 0.8;
 }
 
 #reviewerInput {
@@ -49,7 +51,6 @@ li {
 }
 
 .showpage{
-
 	min-height:100%;
 	background-size:cover;
 }
@@ -67,11 +68,23 @@ li {
 
 .homepageImages {
 	float: right;
-	height: 120px;
+	height: 135px;
 }
 
 .bookInfo {
 	text-align: right;
+	color: #FBFCD3;
+	text-shadow: 4px 4px black;
+}
+ .wholepage {
+ 		background-color: #810828;
+ }
+
+.reviewsBook {
+	color: #FBFCD3;
+	text-shadow: 4px 4px black;
 }
 
-
+.reviewBox {
+	opacity: 0.8;
+}
