@@ -124,24 +124,21 @@
             <p class="col-xs-9" id="reviewer"> <small>{{reviewer}}</small> </p>
             <p class="col-xs-3 text-right" id="dateDisplay"> <small>{{date}}</small> </p>
           </div>
-
           <p id="review"> {{review}} </p>
           {{/each}}
         </li>
       </div>
 
       <div class="addReview">
-        <form class="form-horizontal reviewBox" data-id="{{_id}}">
+        <form class="form-group reviewBox" data-id="{{_id}}">
           <input type="hidden" name="date" id="date" data-date-poop=""> 
           <div class="form-group">
             <input type="text" class="form-control" name="reviewer" id="reviewerInput" placeholder="Reviewer">
           </div>            
           <div class="form-group">
-            <input type="text" class="form-control" name="review" id="reviewInput" placeholder="Review">         
-          </div> 
-          
+            <input type="text" class="form-control" name="review" id="reviewInput" placeholder="Review">
+          </div>
           <button type="submit" class="btn btn-primary btn-lg" id="addReviewButton" >Add Review</button>
-
         </form>
       </div>
 
