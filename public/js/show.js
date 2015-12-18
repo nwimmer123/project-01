@@ -7,7 +7,7 @@ $(document).ready(function() {
 	var baseUrl = '/api/books';
 
 	//generate random image for background
-	var randomNum = Math.floor((Math.random()*15)+1);
+	var randomNum = Math.floor((Math.random()*30)+1);
 	var backgroundUrl = '/images/images' + randomNum + '.jpg';
 	$('.showpage').css("background", "url(" + backgroundUrl + ") no-repeat center center");
 

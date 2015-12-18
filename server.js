@@ -13,8 +13,6 @@ var session = require('express-session');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
-
-
 // serve static files from public folder
 app.use('/',express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: true }));
