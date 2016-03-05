@@ -15,6 +15,9 @@ var LocalStrategy = require('passport-local').Strategy;
 
 // serve static files from public folder
 app.use('/',express.static(__dirname + '/public'));
+// app.use(passport.initialize());
+// app.use(passport.session());
+// app.use(app.router);
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'hbs');
 app.use(cookieParser());
@@ -48,36 +51,9 @@ var Review = require('./models/review');
 // EXPERIMENTAL !!!
 
 
-app.get('/signup', function(req, res) {
-  res.sendFile(__dirname + '/views/signup.html');
-});
-
-app.post('/signup', function(req, res) {
-    Account.register(new Account({ username : req.body.username }), req.body.password, function(err, account) {
-        if (err) {
-          return res.render("register", {info: "Sorry. That username already exists. Try again."});
-        }
-
-        passport.authenticate('local')(req, res, function () {
-            res.redirect('/');
-        });
-    });
-});
-
 app.get('/login', function(req, res) {
-  res.sendFile(__dirname + '/views/login.html');
+  res.sendfile('views/login.html');
 });
-
-app.post('/login', passport.authenticate('local'), function(req, res) {
-    res.redirect('/');
-});
-
-app.get('/logout', function(req, res) {
-    req.logout();
-    res.redirect('/');
-});
-
-module.exports = app;
 
 // END EXPERIMENTAL
 
