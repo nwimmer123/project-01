@@ -14,10 +14,11 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
 // serve static files from public folder
+app.use(passport.initialize());
+app.use(passport.session());
 app.use('/',express.static(__dirname + '/public'));
-// app.use(passport.initialize());
-// app.use(passport.session());
-// app.use(app.router);
+
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'hbs');
 app.use(cookieParser());
@@ -51,9 +52,38 @@ var Review = require('./models/review');
 // EXPERIMENTAL !!!
 
 
-app.get('/login', function(req, res) {
-  res.sendfile('views/login.html');
+app.get('/login', function login (req, res) {
+  res.sendfile(__dirname + '/views/login.html');
 });
+
+app.post('/login',
+  passport.authenticate('local', {
+    successRedirect: '/loginSuccess',
+    failureRedirect: '/loginFailure'
+  })
+);
+
+app.get('/loginFailure', function(req, res, next) {
+  res.send('Failed to authenticate');
+});
+
+app.get('/loginSuccess', function(req, res, next) {
+  res.send('Successfully authenticated');
+});
+
+passport.serializeUser(function(user, done) {
+  done(null, user);
+});
+
+passport.deserializeUser(function(user, done) {
+  done(null, user);
+});
+
+passport.use(new LocalStrategy(function(username, password, done) {
+  process.nextTick(function() {
+    // Auth Check Logic
+  });
+}));
 
 // END EXPERIMENTAL
 
