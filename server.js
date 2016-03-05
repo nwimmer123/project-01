@@ -27,7 +27,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // passport config
-//passport.use(new LocalStrategy(User.authenticate()));
+// passport.use(new LocalStrategy(User.authenticate()));
 // passport.serializeUser(User.serializeUser());
 // passport.deserializeUser(User.deserializeUser());
 
@@ -47,18 +47,12 @@ var Review = require('./models/review');
 
 // EXPERIMENTAL !!!
 
- var router = express.Router();
 
-
-router.get('/', function (req, res) {
-    res.render('index', { user : req.user });
+app.get('/signup', function(req, res) {
+  res.sendFile(__dirname + '/views/signup.html');
 });
 
-router.get('/register', function(req, res) {
-    res.render('register', { });
-});
-
-router.post('/register', function(req, res) {
+app.post('/signup', function(req, res) {
     Account.register(new Account({ username : req.body.username }), req.body.password, function(err, account) {
         if (err) {
           return res.render("register", {info: "Sorry. That username already exists. Try again."});
@@ -70,20 +64,20 @@ router.post('/register', function(req, res) {
     });
 });
 
-router.get('/login', function(req, res) {
-    res.render('login', { user : req.user });
+app.get('/login', function(req, res) {
+  res.sendFile(__dirname + '/views/login.html');
 });
 
-router.post('/login', passport.authenticate('local'), function(req, res) {
+app.post('/login', passport.authenticate('local'), function(req, res) {
     res.redirect('/');
 });
 
-router.get('/logout', function(req, res) {
+app.get('/logout', function(req, res) {
     req.logout();
     res.redirect('/');
 });
 
-module.exports = router;
+module.exports = app;
 
 // END EXPERIMENTAL
 
