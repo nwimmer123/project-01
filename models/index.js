@@ -1,8 +1,9 @@
 var mongoose = require("mongoose");
+mongoose.connect('mongodb://localhost/project-01');
 //heroku connection
-mongoose.connect( process.env.MONGOLAB_URI ||
-                  process.env.MONGOHQ_URL ||
-                  "mongodb://localhost/project-01_test" );
+// mongoose.connect( process.env.MONGOLAB_URI ||
+//                   process.env.MONGOHQ_URL ||
+//                   "mongodb://localhost/project-01_test" );
 
 var Book = require('./book');
 var User = require('./user');

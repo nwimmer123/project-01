@@ -1,14 +1,16 @@
-// var mongoose = require('mongoose');
-// var	Schema = mongoose.Schema;
-// //var	passportLocalMongoose = require('passport-local-mongoose');
+var mongoose = require('mongoose');
+var	Schema = mongoose.Schema;
+var	passportLocalMongoose = require('passport-local-mongoose');
 
-// var userShema = new Schema({
-// 	username: String,
-// 	password: String,
-// 	screenName: String
-// });
+var Book = require('./book');
 
-// //UserSchema.plugin(passportLocalMongoose);
+var UserSchema = new Schema({
+	username: String,
+	password: String,
+	books: [Book.schema]
+});
 
-// var User = mongoose.model('User', UserSchema);
-// module.exports = User;
+UserSchema.plugin(passportLocalMongoose);
+
+var User = mongoose.model('User', UserSchema);
+module.exports = User;
