@@ -27,8 +27,10 @@ app.use(session({
   resave: false,
   saveUninitialized: false
 }));
-app.use(passport.initialize());
-app.use(passport.session());
+
+// !Why are these repeated here?? 
+// app.use(passport.initialize());
+// app.use(passport.session());
 
 // passport config
 // passport.use(new LocalStrategy(User.authenticate()));
@@ -54,6 +56,10 @@ var Review = require('./models/review');
 
 app.get('/login', function login (req, res) {
   res.sendfile(__dirname + '/views/login.html');
+});
+
+app.get('/signup', function signup (req, res) {
+  res.sendfile(__dirname + '/views/signup.html');
 });
 
 app.post('/login',
