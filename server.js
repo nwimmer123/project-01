@@ -17,6 +17,22 @@ var LocalStrategy = require('passport-local').Strategy;
 app.use(passport.initialize());
 app.use(passport.session());
 app.use('/',express.static(__dirname + '/public'));
+app.use('/',express.static(__dirname + '/views'));
+
+passport.use(new LocalStrategy(
+  function(username, password, done) {
+    User.findOne({ username: username }, function (err, user) {
+      if (err) { return done(err); }
+      if (!user) {
+        return done(null, false, { message: 'Incorrect username.' });
+      }
+      if (!user.validPassword(password)) {
+        return done(null, false, { message: 'Incorrect password.' });
+      }
+      return done(null, user);
+    });
+  }
+));
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -55,11 +71,11 @@ var Review = require('./models/review');
 
 
 app.get('/login', function login (req, res) {
-  res.sendfile(__dirname + '/views/login.html');
+  res.sendfile(__dirname + 'views/login.html');
 });
 
 app.get('/signup', function signup (req, res) {
-  res.sendfile(__dirname + '/views/signup.html');
+  res.sendfile(__dirname + 'views/signup.html');
 });
 
 app.post('/login',
