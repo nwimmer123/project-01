@@ -85,6 +85,12 @@ app.post('/login',
   })
 );
 
+app.post('/signup',
+  passport.authenticate('local', {
+
+  })
+);
+
 app.get('/loginFailure', function(req, res, next) {
   res.send('Failed to authenticate');
 });
@@ -106,6 +112,22 @@ passport.use(new LocalStrategy(function(username, password, done) {
     // Auth Check Logic
   });
 }));
+
+passport.use(new LocalStrategy(
+  function(username, password, done) {
+    User.findOne({ username: username }, function(err, user) {
+      if (err) { return done(err); }
+      if (!user) {
+        return done(null, false, { message: 'Incorrect username.' });
+      }
+      if (!user.validPassword(password)) {
+        return done(null, false, { message: 'Incorrect password.' });
+      }
+      return done(null, user);
+    });
+  }
+));
+
 
 // END EXPERIMENTAL
 
