@@ -1,16 +1,19 @@
 // SERVER-SIDE JAVASCRIPT
 
-//require express in our app
 var express = require('express');
-// generate a new express app and call it 'app'
 var app = express();
 var mongoose = require('mongoose');
+var passport = require('passport');
+var flash = require('connect-flash');
+
+var morgan = require('morgan');
+var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require('express-session');
+
 var html = require('html');
 var hbs = require('hbs');
-var cookieParser = require('cookie-parser');
-var session = require('express-session');
-var passport = require('passport');
+var User   = require('./models/user');
 var LocalStrategy = require('passport-local').Strategy;
 
 // serve static files from public folder
