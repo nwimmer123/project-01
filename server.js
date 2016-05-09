@@ -1,3 +1,4 @@
+
 // SERVER-SIDE JAVASCRIPT
 
 var express = require('express');
@@ -14,38 +15,31 @@ var session = require('express-session');
 var html = require('html');
 var hbs = require('hbs');
 var User   = require('./models/user');
+var configDB = require('./config/database.js');
 var LocalStrategy = require('passport-local').Strategy;
-
-// serve static files from public folder
-app.use(passport.initialize());
-app.use(passport.session());
-app.use('/',express.static(__dirname + '/public'));
-app.use('/',express.static(__dirname + '/views'));
-
-passport.use(new LocalStrategy(
-  function(username, password, done) {
-    User.findOne({ username: username }, function (err, user) {
-      if (err) { return done(err); }
-      if (!user) {
-        return done(null, false, { message: 'Incorrect username.' });
-      }
-      if (!user.validPassword(password)) {
-        return done(null, false, { message: 'Incorrect password.' });
-      }
-      return done(null, user);
-    });
-  }
-));
+require('./config/passport')(passport);
 
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.set('view engine', 'hbs');
-app.use(cookieParser());
-app.use(session({
-  secret: 'supersecretkey',
-  resave: false,
-  saveUninitialized: false
-}));
+
+// THIS STUFF IN CONFIG NOW
+// app.use(passport.initialize());
+// app.use(passport.session());
+
+// passport.use(new LocalStrategy(
+//   function(username, password, done) {
+//     User.findOne({ username: username }, function (err, user) {
+//       if (err) { return done(err); }
+//       if (!user) {
+//         return done(null, false, { message: 'Incorrect username.' });
+//       }
+//       if (!user.validPassword(password)) {
+//         return done(null, false, { message: 'Incorrect password.' });
+//       }
+//       return done(null, user);
+//     });
+//   }
+// ));
+
 
 // !Why are these repeated here?? 
 // app.use(passport.initialize());
@@ -56,6 +50,22 @@ app.use(session({
 // passport.serializeUser(User.serializeUser());
 // passport.deserializeUser(User.deserializeUser());
 
+// serve static files from public folder
+app.use('/',express.static(__dirname + '/public'));
+app.use('/',express.static(__dirname + '/views'));
+app.use(cookieParser());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(session({
+  secret: 'supersecretkey',
+  resave: false,
+  saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.set('view engine', 'hbs');
+
+;
 /************
  * DATABASE *
  ************/
@@ -70,27 +80,28 @@ var Review = require('./models/review');
  **********/
 
 
-// EXPERIMENTAL !!!
+// PASSPORT EXPERIMENTAL !!!
 
 
 app.get('/login', function login (req, res) {
-  res.sendfile(__dirname + 'views/login.html');
+  res.sendfile(__dirname + '/views/login.html');
 });
 
 app.get('/signup', function signup (req, res) {
-  res.sendfile(__dirname + 'views/signup.html');
+  res.sendfile(__dirname + '/views/signup.html');
 });
 
 app.post('/login',
-  passport.authenticate('local', {
+  passport.authenticate('local-login', {
     successRedirect: '/loginSuccess',
     failureRedirect: '/loginFailure'
   })
 );
 
 app.post('/signup',
-  passport.authenticate('local', {
-
+  passport.authenticate('local-signup', {
+    successRedirect : '/', // redirect to the secure profile section
+    failureRedirect : '/signup', // redirect back to the signup page if there is an error
   })
 );
 
